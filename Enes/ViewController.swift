@@ -38,17 +38,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     
 }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete{
-            let context = DBManager.share.saveContext
-            do{
-                try DBManager.share.context.delete(students[indexPath.row])
-                DBManager.share.saveContext()
-                students.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }catch{
-                print("delete error")
-            }
-        }
-    }
+    
 }
+
